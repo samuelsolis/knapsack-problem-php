@@ -1,0 +1,14 @@
+{
+    "name": "samuel/mochila",
+    "description": "A simple PHP solution for the bag problem.",
+    "require": {
+        "twig/twig": "^2.11"
+    },
+    "license": "Creative Commons",
+    "authors": [
+        {
+            "name": "Samuel Solis",
+            "email": "ssolisfu@gmail.com"
+        }
+    ]
+}

@@ -1,0 +1,28 @@
+<form method="POST">
+    {% for item in items %}
+        <fieldset>
+            <label for="name{{ loop.index }}">Name</label>:
+            <input type="text" name="name{{ loop.index }}" value="{{ item.name }}" />
+
+            <label for="volume{{ loop.index }}">Volume</label>:
+            <input type="number" name="volume{{ loop.index }}" value="{{ item.volume }}" />
+
+            <label for="value{{ loop.index }}">Value</label>:
+            <input type="number" name="value{{ loop.index }}" value="{{ item.value }}" />
+        </fieldset>
+    {% endfor %}
+
+    <fieldset>
+        <label for="name_new">Name</label>:
+        <input type="text" name="name_new" />
+
+        <label for="volume_new">Volume</label>:
+        <input type="number" name="volume_new" />
+
+        <label for="value_new">Value</label>:
+        <input type="number" name="value_new" />
+
+    </fieldset>
+
+    <input type="submit" value="Save" />
+</form>
