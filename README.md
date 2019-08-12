@@ -1,4 +1,4 @@
-#Knapsack problem resolution
+# Knapsack problem resolution
 
 This is a simple resolution for the knapsack problem using a
  backtraking algorithm only created to teach some PHP skills. 
