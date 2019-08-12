@@ -3,8 +3,10 @@ require_once('Database.class.php');
 require_once('Item.class.php');
 require_once('vendor/autoload.php');
 
-class Backtraking
-{
+/**
+ * Class Backtraking
+ */
+class Backtraking {
 
   protected $item_volumes;
   protected $item_values;
@@ -37,24 +39,45 @@ class Backtraking
     $this->size = $_COOKIE['knapsacksize'];
   }
 
-
+  /**
+   * Get the array of item names.
+   *
+   * @return array
+   */
   public function getItemNames() {
     return $this->item_names;
   }
 
+  /**
+   * Get the array of item values.
+   *
+   * @return array
+   */
   public function getItemValues() {
     return $this->item_values;
   }
 
+  /**
+   * Get the array of item volumes.
+   *
+   * @return array
+   */
   public function getItemVolumes() {
     return $this->item_volumes;
   }
 
+  /**
+   * Get the bag size.
+   *
+   * @return int
+   */
   public function getSize() {
     return $this->size;
   }
 
   /**
+   * Calculate the max value that can contain the Knap.
+   *
    * @param $values
    *   Values (stored in array v)
    * @param $volumes
@@ -65,14 +88,17 @@ class Backtraking
    *   Knapsack capacity
    *
    * @return int|mixed
+   *
+   * @see https://www.youtube.com/watch?v=vdVpRjO7g84
+   *   For a spanish explanation.
    */
   public function knapSack($values, $volumes, $current, $capacity) {
-    // base case: Negative capacity
+    // Base case: Negative capacity.
     if ($capacity < 0) {
       return -1;
     }
 
-    // base case: no items left or capacity becomes 0
+    // Base case: no items left or capacity becomes 0.
     if ($current < 0 || $capacity == 0) {
       return 0;
     }
@@ -85,7 +111,10 @@ class Backtraking
     // remaining items (n - 1)
     $exclude = $this->knapSack($values, $volumes, $current - 1, $capacity);
 
-    // return maximum value we get by including or excluding current item
+    /**
+     * The max value available will be the max between the $include element (if we include the item)
+     * and the exclude (if we exclude the element).
+     */
     return max($include, $exclude);
   }
 }

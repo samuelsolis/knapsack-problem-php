@@ -18,16 +18,16 @@ if (!empty($_POST)) {
 }
 $form->render();
 
+
 // Knapsack size control.
 $knapForm = new KnapsackForm();
 if (!empty($_GET)) {
   $knapForm->submit();
 }
-
 $knapForm->render();
 
 
-// KnapsackSize Algorithm
+// KnapsackSize Algorithm that show the solution.
 $algorithm = new Backtraking($db);
 
 $values = $algorithm->getItemValues();

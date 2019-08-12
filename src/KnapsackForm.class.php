@@ -3,6 +3,9 @@
 require_once('Database.class.php');
 require_once('vendor/autoload.php');
 
+/**
+ * Class KnapsackForm
+ */
 class KnapsackForm {
 
   protected $size;
