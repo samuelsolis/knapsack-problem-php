@@ -7,6 +7,7 @@ class Database {
   protected $database_name;
   protected $user;
   protected $pass;
+  protected $port;
 
   /** @var \mysqli */
   protected $connection;
@@ -20,6 +21,7 @@ class Database {
     $this->user = $database['user'];
     $this->pass = $database['pass'];
     $this->database_name = $database['name'];
+    $this->port = $database['port'];
   }
 
   /**
@@ -28,7 +30,7 @@ class Database {
    * @return bool
    */
   public function connect() {
-    $this->connection = new mysqli($this->database_server, $this->user, $this->pass);
+    $this->connection = new mysqli($this->database_server, $this->user, $this->pass, $this->database_name, $this->port);
 
     // Check connection
     if ($this->connection->connect_error) {

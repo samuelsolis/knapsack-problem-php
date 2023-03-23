@@ -2,7 +2,7 @@
 
 require_once('vendor/autoload.php');
 
-require_once('src/Database.class.php');
+require_once('src/Database.php');
 require_once('src/ItemsForm.class.php');
 require_once('src/KnapsackForm.class.php');
 require_once('src/Backtraking.class.php');

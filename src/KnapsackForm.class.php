@@ -1,6 +1,6 @@
 <?php
 
-require_once('Database.class.php');
+require_once('Database.php');
 require_once('vendor/autoload.php');
 
 /**
