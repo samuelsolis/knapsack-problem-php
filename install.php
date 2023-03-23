@@ -1,7 +1,7 @@
 <?php
 
-require_once './src/Database.php';
-require_once './src/Schema.class.php';
+require_once('src/Database.php');
+require_once ('./src/Schema.class.php');
 
 $database = new Database();
 $database->connect();

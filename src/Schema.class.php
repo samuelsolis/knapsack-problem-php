@@ -10,7 +10,8 @@ class Schema {
    *
    * @return array
    */
-  public function getSchema() {
+  public function getSchema(): array
+  {
     $tables = array();
     $tables['items'] = array(
       'name' => 'varchar(255) NOT NULL UNIQUE',

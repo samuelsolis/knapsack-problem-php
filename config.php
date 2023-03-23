@@ -3,7 +3,7 @@
 global $database;
 
 $database = [
-  'server' => 'localhost',
+  'server' => '127.0.0.1',
   'name' => 'knapsack_problem',
   'user' => 'root',
   'pass' => 'root',

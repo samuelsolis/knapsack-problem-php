@@ -4,19 +4,19 @@ require_once 'Database.php';
 
 class Item {
 
-  protected $name;
-  protected $value;
-  protected $volume;
+  protected string $name;
+  protected int $value;
+  protected int $volume;
 
   /**
    * @var Database To persist the values.
    */
-  protected $storageController;
+  protected Database $storageController;
 
   /**
    * @var bool Determine if the color is new or not.
    */
-  protected $is_new;
+  protected bool $is_new;
 
   /**
    * Color constructor.
@@ -37,7 +37,8 @@ class Item {
    * @return bool
    *   TRUE if the value is loaded succesfully.
    */
-  public function load($name) {
+  public function load($name): bool
+  {
     $data = NULL;
     $this->storageController->connect();
     $query = 'SELECT * FROM items WHERE name="%s"';
@@ -97,7 +98,7 @@ class Item {
    * @param string $name
    *   The item name.
    */
-  public function setName($name) {
+  public function setName(string $name) {
     $this->name = $name;
   }
 
@@ -107,7 +108,7 @@ class Item {
    * @param int $value
    *   The value value.
    */
-  public function setValue($value) {
+  public function setValue(int $value) {
     $this->value = $value;
   }
 
@@ -117,7 +118,7 @@ class Item {
    * @param int $volume
    *   The volume.
    */
-  public function setVolume($volume) {
+  public function setVolume(int $volume) {
     $this->volume = $volume;
   }
 
@@ -126,7 +127,8 @@ class Item {
    *
    * @return string
    */
-  public function getName() {
+  public function getName(): string
+  {
     return $this->name;
   }
 
@@ -134,7 +136,8 @@ class Item {
    * Get the item value.
    * @return int
    */
-  public function getValue() {
+  public function getValue(): int
+  {
     return $this->value;
   }
 
@@ -143,7 +146,8 @@ class Item {
    *
    * @return int
    */
-  public function getVolume() {
+  public function getVolume(): int
+  {
     return $this->volume;
   }
 }

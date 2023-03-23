@@ -2,7 +2,8 @@
     "name": "samuel/mochila",
     "description": "A simple PHP solution for the bag problem.",
     "require": {
-        "twig/twig": "^2.11"
+      "twig/twig": "^3.5",
+      "ext-mysqli": "*"
     },
     "license": "Creative Commons",
     "authors": [

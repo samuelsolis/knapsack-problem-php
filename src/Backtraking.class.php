@@ -8,11 +8,11 @@ require_once('vendor/autoload.php');
  */
 class Backtraking {
 
-  protected $item_volumes;
-  protected $item_values;
-  protected $item_names;
-  protected $size;
-  protected $storageController;
+  protected array $item_volumes;
+  protected array $item_values;
+  protected array $item_names;
+  protected mixed $size;
+  protected Database $storageController;
 
   /**
    * Backtraking constructor.
@@ -20,7 +20,7 @@ class Backtraking {
    * @param Database $db
    *   The database.
    */
-  public function __construct(Database $db){
+  public function __construct(Database $db) {
     $this->storageController = $db;
 
     $data = NULL;
@@ -44,7 +44,8 @@ class Backtraking {
    *
    * @return array
    */
-  public function getItemNames() {
+  public function getItemNames(): array
+  {
     return $this->item_names;
   }
 
@@ -53,7 +54,8 @@ class Backtraking {
    *
    * @return array
    */
-  public function getItemValues() {
+  public function getItemValues(): array
+  {
     return $this->item_values;
   }
 
@@ -62,7 +64,8 @@ class Backtraking {
    *
    * @return array
    */
-  public function getItemVolumes() {
+  public function getItemVolumes(): array
+  {
     return $this->item_volumes;
   }
 
@@ -71,7 +74,8 @@ class Backtraking {
    *
    * @return int
    */
-  public function getSize() {
+  public function getSize(): int
+  {
     return $this->size;
   }
 
@@ -92,7 +96,8 @@ class Backtraking {
    * @see https://www.youtube.com/watch?v=vdVpRjO7g84
    *   For a spanish explanation.
    */
-  public function knapSack($values, $volumes, $current, $capacity) {
+  public function knapSack($values, $volumes, $current, $capacity): mixed
+  {
     // Base case: Negative capacity.
     if ($capacity < 0) {
       return -1;

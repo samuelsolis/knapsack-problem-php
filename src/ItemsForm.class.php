@@ -6,8 +6,8 @@ require_once('vendor/autoload.php');
 
 class ItemsForm {
 
-  protected $items;
-  protected $storageController;
+  protected array $items;
+  protected Database $storageController;
 
   /**
    * ItemsForm constructor.

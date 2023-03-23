@@ -26,8 +26,8 @@ class KnapsackForm {
    */
   public function render() {
 
-    $loader = new \Twig_Loader_Filesystem(__DIR__.'/../templates');
-    $twig = new \Twig_Environment($loader);
+    $loader = new \Twig\Loader\FilesystemLoader(__DIR__.'/templates');
+    $twig = new \Twig\Environment($loader);
     print $twig->render('KnapsackSize.twig', ['size' => $this->size]);
   }
 

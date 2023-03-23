@@ -3,14 +3,14 @@ require_once 'config.php';
 
 class Database {
 
-  protected $database_server;
-  protected $database_name;
-  protected $user;
-  protected $pass;
-  protected $port;
+  protected string $database_server;
+  protected string  $database_name;
+  protected string  $user;
+  protected string $pass;
+  protected int $port;
 
   /** @var \mysqli */
-  protected $connection;
+  protected ?mysqli $connection;
 
   /**
    * Database constructor.
@@ -22,6 +22,8 @@ class Database {
     $this->pass = $database['pass'];
     $this->database_name = $database['name'];
     $this->port = $database['port'];
+    $this->connection = null;
+
   }
 
   /**
@@ -29,8 +31,9 @@ class Database {
    *
    * @return bool
    */
-  public function connect() {
-    $this->connection = new mysqli($this->database_server, $this->user, $this->pass, $this->database_name, $this->port);
+  public function connect() : bool{
+
+      $this->connection = new mysqli($this->database_server, $this->user, $this->pass, $this->database_name, $this->port);
 
     // Check connection
     if ($this->connection->connect_error) {
@@ -56,7 +59,7 @@ class Database {
    * @param array $fields
    *   List of fields in string format.
    */
-  public function createTable($name, $fields) {
+  public function createTable(string $name, array $fields) {
     $field_rendered = array();
     foreach ($fields as $field_name => $definition) {
       $field_rendered[] = $field_name . ' ' . $definition;
@@ -66,12 +69,12 @@ class Database {
     $this->connection->query($query);
   }
 
-  /**
-   * Insert into $table de element describes in $values.
-   * @param $table
-   * @param $values
-   */
-  public function insert($table, $values) {
+    /**
+     * Insert into $table de element describes in $values.
+     * @param string $table
+     * @param array $values
+     */
+  public function insert(string $table, array $values) {
     $query = 'INSERT INTO ' . $table . ' VALUES (' . implode(',', $values). ')';
     $this->connection->query($query);
   }
@@ -84,7 +87,7 @@ class Database {
    * .
    * @return bool|mysqli_result
    */
-  public function query($query) {
+  public function query(string $query): mysqli_result|bool {
     return $this->connection->query($query);
   }
 }
